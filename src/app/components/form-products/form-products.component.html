@@ -1,0 +1,79 @@
+<div class="card-container text-layout">
+    <div class="grid">
+      <div class="col-12">
+        <p-card [header]="header">
+          <form
+            [formGroup]="miFormulario"
+            class="form-group"
+            (ngSubmit)="guardar()"
+          >
+            <div class="grid p-fluid">
+              <div class="col-12 md:col-4">
+                <div class="p-inputgroup">
+                  <span class="p-inputgroup-addon"
+                    ><i class="pi pi-ellipsis-v"></i
+                  ></span>
+                  <input
+                    pInputText
+                    class="form-control"
+                    type="text"
+                    formControlName="name"
+                    placeholder="Nombre del Producto"
+                  />
+                </div>
+                <span *ngIf="campoEsValido('name')" class="p-error">
+                  El nombre del producto es requerido</span
+                >
+              </div>
+              <div class="col-12 md:col-4">
+                <div class="p-inputgroup">
+                  <span class="p-inputgroup-addon"
+                    ><i class="pi pi-dollar"></i
+                  ></span>
+                  <input
+                    pInputText
+                    class="form-control"
+                    type="number"
+                    formControlName="price"
+                    placeholder="Precio"
+                  />
+                </div>
+                <span *ngIf="campoEsValido('price')" class="p-error">
+                  El precio del producto es requerido</span
+                >
+              </div>
+              <div class="col-12 md:col-4">
+                <div class="p-inputgroup">
+                  <span class="p-inputgroup-addon"
+                    ><i class="pi pi-comment"></i
+                  ></span>
+                  <input
+                    pInputText
+                    class="form-control"
+                    type="text"
+                    formControlName="description"
+                    placeholder="Descripción del producto"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="grid p-fluid">
+           
+              <div class="col-12 md:col-6">
+                <button
+                  pButton
+                  [disabled]="miFormulario.invalid"
+                  type="sumbmit"
+                  label="Guardar Producto"
+                  icon="pi pi-check"
+                  class="p-button"
+                ></button>
+              </div>
+            </div>
+          </form>
+        </p-card>
+      </div>
+    </div>
+  </div>
+  
